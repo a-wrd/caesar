@@ -1,0 +1,40 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>     /* atoi */
+
+int main(int argc, string argv[])
+{    
+    //for (int i=0; i<strlen(argv[1]); i++)
+    //{
+        if ((argc == 2 ) && (isdigit(*argv[1])))
+        {        
+            int k = atoi(argv[1]);
+            string s = get_string("plaintext: ") ;
+            printf("ciphertext: ") ;         
+            for (int j=0; j<strlen(s) ; j++)
+            {
+                if (('a' <= s[j] && s[j] < 'z') || (s[j] >= 'A' && s[j] < 'Z'))
+                {
+                    printf("%c", s[j]+k);
+                }
+                else if ((s[j]='z') || (s[j]='Z'))
+                {
+                    printf("%c", s[j]-26+k);
+                }
+                else
+                {
+                    printf("%c", s[j]);
+                }
+            }    
+            printf("\n");
+            return 0 ;
+        }
+        else 
+        {
+            printf("Usage: ./caesar key\n") ;
+            return 1 ;
+        }  
+    //}      
+}
